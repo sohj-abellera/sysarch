@@ -1,0 +1,641 @@
+
+/* #region Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+/* #endregion */
+
+/* #region Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* #endregion */
+
+/* #region Root Variables */
+:root {
+    --main-color: #02242e;
+    --base-clr: #11121a;
+    --line-clr: #42434a;
+    --hover-clr: #05313f;
+    --text-clr: #bfbfce;
+    --accent-clr: #5be400;
+    --secondary-text-clr: #b0b3c1;
+    --test-color: #c71f1f;
+}
+
+/* #endregion */
+
+/* #region Body Styling */
+body {
+    /* background: linear-gradient(to right, #02242e, #002b36); */
+    background: linear-gradient(to right, #e6e6e6, #d7e1ff);
+    overflow-y: hidden;
+}
+/* #endregion */
+
+/* #region Scrollbar */
+body::-webkit-scrollbar {
+    width: 6px; /* Width of the scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+    background: transparent; /* Scrollbar track (background) */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #888; /* Scrollbar thumb (handle) */
+    border-radius: 10px; /* Rounded corners for thumb */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Color on hover */
+}
+
+/* #region Scrollbar Design for All Grids */
+.grid-scrollbar-design::-webkit-scrollbar {
+    width: 7px; /* Width of the scrollbar */
+}
+
+.grid-scrollbar-design::-webkit-scrollbar-track {
+    background: transparent; /* Track color */
+    border-radius: 5px; /* Optional: Rounded track corners */
+    margin: 2px;
+}
+
+.grid-scrollbar-design::-webkit-scrollbar-thumb {
+    background-color: #888; /* Thumb color */
+    border-radius: 5px; /* Optional: Rounded thumb corners */
+}
+
+.grid-scrollbar-design::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Darker color on hover */
+}
+/* #endregion */
+
+/* #endregion */
+
+/* #region chart sizing */
+#canvas{
+    width: 100% !important;
+    height: 100% !important;
+    /* color: #376b15; */
+    margin-top: 10px;
+}
+/* #endregion */
+
+/* #region For page hopping*/
+.page {
+    display: none;
+}
+.page.active {
+    display: block;
+}
+/* #endregion */
+
+/* #region For containers with scrollbar */
+.container_scrollbar_design::-webkit-scrollbar {
+    width: 8px;
+}
+
+.container_scrollbar_design::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.container_scrollbar_design::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+    border: 2px solid #f1f1f1;
+}
+
+.container_scrollbar_design::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+/* #endregion */
+
+/* #region Grid item styles */
+.grid-item-design {
+    padding: 10px;
+    background-color: #f0f0f0;
+    font-family: 'Afacad Flux', sans-serif;
+    transition: transform 0.2s, box-shadow 0.2s; 
+    border: 1px solid rgba(90, 90, 90, 0.253);
+    border-radius: 8px;
+}
+
+.grid-item-design:hover {
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
+    cursor: pointer;
+}
+
+.grid-item-design .item-name{
+    letter-spacing: .8px;
+    font-size: 1.18rem;
+    font-weight: 500;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+/* #endregion */
+
+/* #region Title style*/
+.grid-item-design.title{
+    background: transparent;
+    box-shadow: none;
+    font-size: 1.85rem;
+    font-weight: 500;
+    letter-spacing: .85px;
+    border: none;
+    white-space: nowrap;
+
+}
+
+.grid-item-design.title:hover {
+    transform: none; 
+    box-shadow: none; 
+    cursor:default;
+}
+/* #endregion */
+
+/* #region chart-tab */
+.chart-tab{
+    font-size: 1.1rem;
+    text-align: center;
+    color: #02242e;
+    font-weight: 500;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0;
+    margin-top: 15px;
+    margin-bottom: -5px;
+    background-color: #45a14377;
+    border: none;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); 
+}
+
+.grid-item-design > .svg-container{
+    background-color: #02242e;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    margin-right: 5px;
+}
+
+.grid-item-design > .svg-container svg{
+    height: 23px;
+    width: 23px;
+}
+/* #endregion */
+
+/* #region account grid designs */
+.account-information-grid {
+    display: grid;
+    grid-template-columns: repeat(17, 1fr); 
+    gap: 30px;
+    margin: 0;
+    padding: 40px 40px 40px 120px;
+    height: calc(100vh - 60px);
+    grid-template-rows: 300px 40px auto;
+    overflow-y: auto;
+}
+
+.account-information-grid.supply_chain {
+    padding: 40px 40px 40px 40px;
+}
+
+.account-information-grid.supply_chain.admin {
+    padding: 40px 40px 40px 120px;
+}
+/* #endregion */
+
+/* #region Grid Layout*/
+/* Search */
+.aig1 {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 6;
+}
+
+.aig3 {
+    grid-row-start: 1;
+    grid-row-end: 4;
+    grid-column-start: 6;
+    grid-column-end: 18;
+}
+
+/* #endregion */
+
+/* #region Grid item styles */
+.grid-item-design-aig {
+    padding: 0px;
+    background-color: #f0f0f0;
+    font-family: 'Afacad Flux', sans-serif;
+    transition: transform 0.2s, box-shadow 0.2s; 
+    border: 1px solid rgba(90, 90, 90, 0.253);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.aig-title {
+    background-color: #062f3dc5;
+    font-family: 'Afacad Flux', sans-serif;
+    border-bottom: 1px solid #02242e5e;
+    color: white;
+    text-transform: uppercase;
+    font-size: .90rem;
+    letter-spacing: .5px;
+    font-weight: 500;
+    border-radius: 7px 7px 0 0;
+    padding: 10px 20px;
+}
+/* #endregion */
+
+/* #region Grid content styles */
+.aig-content{
+    padding: 20px;
+}
+
+.aig-content > div:not(:last-child){
+    margin-bottom: 20px;
+}
+
+.row-item{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.row-item.double{
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.row-item.double > div{
+    width: 100%;
+}
+
+.row-item > .input-title,
+.row-item > div > .input-title{
+    font-size: 1rem;
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    color: rgb(97, 97, 97);
+    margin-bottom: 2px;
+}
+
+
+/* #region Button */
+.update{
+    justify-content: flex-end;
+}
+
+.update > button{
+    font-family: 'Afacad Flux', sans-serif;
+    background-color: #e02a2a;
+    font-weight: 600;
+    color: white;
+    font-size: .78rem;
+    padding: 10px 45px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 220px;
+}
+
+.update > button:not(:last-child){
+    background-color: #062f3dc5;
+    margin-right: 10px;
+}
+
+.update > button:hover{
+    cursor: pointer;
+    background-color: #b92323;
+}
+
+.update > button:not(:last-child):hover {
+    cursor: pointer;
+    background-color: #063746;
+}
+
+.update > button[disabled] { 
+    background-color: grey; 
+    cursor: not-allowed; 
+}
+/* #endregion */
+
+/* #region Form styles */
+#updateaccountdetialsForm .input-group-aig{
+    position: relative;
+    width: 100%;
+}
+
+#updateaccountdetialsForm > div{
+    border: none;
+}
+
+#updateaccountdetialsForm > div:first-child{
+    border: none;
+    padding: 0 10px;
+}
+
+/* #region Placeholder*/
+.md-placeholder::placeholder { 
+    color: transparent; 
+} 
+
+.md-placeholder:focus::placeholder { 
+    color: #999; /* Adjust the color as needed */ 
+} 
+
+.md-placeholder::placeholder {
+    font-size: 0.8rem; /* Adjust the size as needed */ 
+}
+/* #endregion */
+
+#updateaccountdetialsForm .input-group-aig label{
+    position: absolute;
+    top: 54%;
+    left: 10px;
+    transform: translateY(-50%);
+    font-size: .94rem;
+    letter-spacing: .5px;
+    color: rgba(0, 0, 0, 0.61);
+    padding: 0 8px;
+    pointer-events: none;
+    transition: .3s;
+    padding: 0px 10px;
+    border-radius: 10px;
+}
+
+#updateaccountdetialsForm .input-group-aig input{    
+    padding: 15px;
+    background-color: #f0f0f0;
+    border: 1px solid rgb(161, 161, 161);
+    width: 100%;
+    height: 50px;
+    outline: none;
+    text-align: left;
+    font-size: 1rem;
+    color: black;
+    font-weight: 500;
+    margin: 4px 0 0 0;
+    padding: 13px 15px;
+    border-radius: 5px;
+}
+
+#updateaccountdetialsForm .input-group-aig input:focus {
+    background-color: #f0f0f0;
+    border: 1px solid rgb(161, 161, 161);
+}
+
+#updateaccountdetialsForm .input-group-aig input.has-value {
+    background-color: #f0f0f0;
+    border: 1px solid rgb(161, 161, 161);
+}
+
+/* label upon click */
+#updateaccountdetialsForm .input-group-aig input:focus + label,
+#updateaccountdetialsForm .input-group-aig input:not(:placeholder-shown) + label {
+    top: 5px;
+    left: 5px;
+    background: #f0f0f0;
+    font-size: .90rem;
+    padding: 0px 5px;
+}
+
+/* #endregion */
+
+/* #region confirm changes */
+.confirmmodal-style ul#updatedemployeedetails {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    white-space: nowrap;
+    margin-bottom: 10px;
+    font-family: 'Afacad Flux', sans-serif;
+}
+
+/* #endregion */
+
+/* #region Account details error styling */
+
+.error-container.username > .account-details-errors{
+    display: none;
+}
+
+.error-container.email > .account-details-errors{
+    display: none;
+}
+
+.error-container.username .account-details-errors,
+.error-container.email .account-details-errors,
+.error-container.pnumber1 .account-details-errors,
+.error-container.pnumber2 .account-details-errors,
+.error-container.fname .account-details-errors,
+.error-container.mname .account-details-errors,
+.error-container.lname .account-details-errors{
+    bottom: -47px;
+    transform: translateX(10%);
+}
+
+.error-container.pnumber1 > .account-details-errors{
+    display: none;
+}
+
+.error-container.pnumber2 > .account-details-errors{
+    display: none;
+}
+
+.error-container.fname > .account-details-errors{
+    display: none;
+}
+
+.error-container.mname > .account-details-errors{
+    display: none;
+}
+
+.error-container.lname > .account-details-errors{
+    display: none;
+}
+
+.error-container.old_password > .account-details-errors{
+    display: none;
+}
+
+.error-container.new_password > .account-details-errors{
+    display: none;
+}
+
+.error-container {
+    position: relative;
+}
+
+.account-details-errors {
+    font-family: "Montserrat", sans-serif;
+    font-size: .75rem;
+    letter-spacing: 0.4px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 174, 174);
+    padding: 12px 16px;
+    position: absolute;
+    text-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: -3px 5px 30px rgba(0, 0, 0, 0.384);
+    border-radius: 4px;
+    z-index: 10;
+}
+
+/* arrow at the top */
+.ae-tooltip-style::after {
+    content: "";
+    position: absolute;
+    top: -10px; /* Adjust the arrow to the top */
+    left: 20%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid rgb(255, 174, 174); /* Arrow pointing down */
+    border-top: none; /* Remove the original top border */
+}
+
+#updateaccountdetialsForm .input-group-aig input.has-error {
+    background-color: rgb(255, 184, 184);
+    border: 1px solid rgb(255, 0, 0);
+}
+
+#updateaccountdetialsForm .input-group-aig input.has-error + label {
+    color: rgb(255, 0, 0); 
+}
+
+/* #endregion */
+
+
+/* #endregion */
+
+/* #region Profile picture form */
+#updateprofilepicture{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+#updateprofilepicture > div{
+    border: none;
+}
+
+#updateprofilepicture .message{
+    font-size: 1rem;
+    font-weight: 500;
+    color: #02242e9d;
+    margin: 10px 0;
+}
+
+#updateprofilepicture .profilepreviewcontainer img{
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background-color: rgba(14, 69, 100, 0.39);
+}
+
+#updateprofilepicture .profilepreviewcontainer img:hover{
+    cursor: pointer;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
+    transform: translateY(-2px);
+    transform: scale(1.02);
+}
+
+/* #region Button */
+
+.profilepicbuttoncontainer{
+    justify-content: center;
+}
+
+.profilepicbuttoncontainer > #uploadButton{
+    font-family: 'Afacad Flux', sans-serif;
+    background-color: #062f3dc5;
+    font-weight: 600;
+    color: white;
+    font-size: .78rem;
+    padding: 8px 15px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.profilepicbuttoncontainer > #uploadButton:hover{
+    cursor: pointer;
+    background-color: #063746;
+}
+
+.profilepicbuttoncontainer > #uploadButton[disabled] { 
+    background-color: grey; 
+    cursor: not-allowed; 
+}
+
+#confirmpasswordChange[disabled] { 
+    background-color: grey; 
+    cursor: not-allowed; 
+}
+
+.profilepicbuttoncontainer > #reverttooriginal{
+    background-color: #062f3dc5;
+    font-weight: 600;
+    color: white;
+    font-size: .78rem;
+    padding: 5px 10px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: 15px;
+    display: none;
+}
+
+.profilepicbuttoncontainer > #reverttooriginal.show{
+    display: block;
+}
+
+.profilepicbuttoncontainer > #reverttooriginal svg{
+    fill: white;
+    height: 20px;
+    width: 20px;
+}
+
+.profilepicbuttoncontainer > #reverttooriginal:hover{
+    cursor: pointer;
+    background-color: #063746;
+}
+
+/* #endregion */
+
+/* #endregion */
+
+.aig-ri-6.double{
+    display: none;
+}
+
+.aig-ri-6.double.show{
+    display: flex;
+}

@@ -1,0 +1,357 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+/* #region Grid designs */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr); 
+    gap: 20px;
+    margin: 0 1px 0 0;
+    padding: 20px 20px 20px 100px;
+    height: calc(100vh - 60px);
+    grid-template-rows: 50px 120px 380px;
+    overflow-y: auto;
+}
+
+/* #region Grid Layout*/
+.title{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 5;
+}
+.revenue{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+.inventory-value{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 7;
+}
+.inventory-turnover-rate{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 7;
+    grid-column-end: 13;
+}
+.orders-in-transit{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 10;
+    grid-column-end: 13;
+}
+
+.ex1{
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 5;
+}
+
+.ex2{
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 5;
+    grid-column-end: 13;
+}
+
+.ex2 .top{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+
+
+/* #endregion */
+
+/* #endregion */
+
+/* #endregion */
+
+/* #region 3 top row */
+.top-row{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.top-row > .top{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* #region SVG */
+.top-row > .top .svg-container{
+    background-color:  #02242e;
+    height: 53px;
+    width: 53px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2); 
+    margin-right: 5px;
+    margin-top: 5px;
+
+}
+
+.top-row > .top .svg-container svg{
+    height: 22px;
+    width: 22px;
+    fill: #f0f0f0;
+}
+/* #endregion */
+
+/* #region Text */
+.top-row > .top .text{
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.top-row > .top .text .name{
+    font-size: 1.17rem;
+    line-height: 1.17rem;
+    font-weight: 400;
+    color: rgba(39, 39, 39, 0.747);
+    white-space: nowrap;
+    margin-bottom: 8px;
+}
+
+.top-row > .top .text .value{
+    letter-spacing: .5px;
+    font-size: 1.70rem;
+    line-height: 1.70rem;
+    font-weight: 600;
+    font-family: "Baloo Paaji 2", sans-serif;
+}
+
+.top-row > .top .text .value span{
+    font-family: "Quicksand", sans-serif;
+    margin-right: 1px;
+}
+/* #endregion */
+
+/* #region Data Analytics */
+.top-row > .dashboard-analytics{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    font-size: 1.1rem;
+    color: #7a7a7a;
+    font-weight: 400;
+    position: relative;
+}
+
+.top-row > .dashboard-analytics::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 5%;
+    width: 93%;
+    height: 1px; /* Simulates a thin border */
+    background: linear-gradient(to right, transparent, rgb(185, 185, 185), transparent);
+    pointer-events: none; 
+}
+
+.top-row > .dashboard-analytics span:first-child{
+    margin-left: 10px;
+    margin-right: 3px;
+    color: rgb(19, 168, 19);
+    font-weight: 600;
+    font-size: 1rem;
+    font-family: "Baloo Paaji 2", sans-serif;
+    margin-bottom: -4px;
+    letter-spacing: .3px;
+}
+/* #endregion */
+
+/* #endregion */
+
+/* #region Stock Levels */
+.dashboard-item .frame .text{
+    font-size: 1.06rem;
+    color: rgba(39, 39, 39, 0.747);
+    font-weight: 300;
+    margin-left: 10px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: row;
+}
+
+.dashboard-item .frame .text .needs-restocking{
+    font-family: "Baloo Paaji 2", sans-serif;
+    font-size: .88rem;
+    margin: 0 4px;
+}
+
+.ex1 > .frame .container,
+.ex2 > .frame .container{
+    height: 285px;
+    width: 100%;
+}c
+
+#canvas{
+    color: #376b15;
+    margin-top: 10px;
+}
+
+.highest-selling-item{
+    margin: 0 4px;
+}
+/* #endregion */
+
+/* #region Grid item styles */
+.grid-item-design {
+    padding: 10px;
+    background-color: #f0f0f0;
+    font-family: 'Afacad Flux', sans-serif;
+    transition: transform 0.2s, box-shadow 0.2s; 
+    border: 1px solid rgba(90, 90, 90, 0.253);
+    border-radius: 8px;
+}
+
+.grid-item-design:hover {
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
+    cursor: default;
+}
+
+.grid-item-design .item-name{
+    letter-spacing: .8px;
+    font-size: 1.18rem;
+    font-weight: 500;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+/* #endregion */
+
+/* #region Search bar*/
+.ex2 .search-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid rgb(97, 97, 97);
+    border-radius: 10px;
+    margin-top: 6px;
+    width: 190px;
+    margin-right: 5px;
+}
+
+.ex2 .icon-container svg {
+    fill: rgb(51, 51, 51);
+    height: 16px;
+    width: 16px;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.ex2 .input-container {
+    display: flex;
+    width: 100%;
+    margin-top: 1px;
+    font-family: 'Afacad Flux', sans-serif;
+    position: relative;
+}
+
+.ex2 .search-input {
+    width: 100%;
+    padding: 4px;
+    border: none;
+    border-radius: 4px;
+    font-size: .80rem;
+    background-color: transparent;
+}
+
+.ex2 .search-input:focus {
+    outline: none;
+}
+/* #endregion */
+
+
+/* #region Inventory Movements */
+.inventory-movements-container {
+    overflow-y: auto;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Table alignment */
+.inventory-movements-header, 
+.inventory-movements-item {
+    display: flex;
+    align-items: center; 
+    text-align: center; 
+    border-bottom: 1px solid #cecece;
+}
+
+.inventory-movements-header > span,
+.inventory-movements-item > span {
+    flex: 1; /* Ensures equal spacing */
+}
+
+.inventory-movements-header {
+    font-weight: 600;
+    font-size: 1.02rem;
+    background-color: #f1f1f1;
+    padding: 0 0 5px 0;
+    position: sticky;
+    z-index: 4;
+    top: 0;
+}
+
+.inventory-movements-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #cecece;
+    font-size: .95rem;
+}
+
+.inventory-movements-item:hover{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* #region sales filter alignment */
+.sales-filter > .hd-movement-id, 
+.sales-filter > .movement-id { flex-basis: 15%; }
+
+.sales-filter > .hd-product-id, 
+.sales-filter > .product-id { flex-basis: 15%; }
+
+.sales-filter > .hd-product-name, 
+.sales-filter > .product-name { flex-basis: 15%; }
+
+.sales-filter > .hd-quantity, 
+.sales-filter > .quantity { flex-basis: 15%; }
+
+.sales-filter > .hd-movement-type, 
+.sales-filter > .movement-type { flex-basis: 20%; } /* Adjusted */
+
+.sales-filter > .hd-date-of-movement, 
+.sales-filter > .date-of-movement { flex-basis: 20%; } /* Adjusted */
+/* #endregion */
+
+
+/* #endregion */
+
+/* #region header */
+.inventory-movements-header-hd{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 5px 0;
+}
+/* #endregion */

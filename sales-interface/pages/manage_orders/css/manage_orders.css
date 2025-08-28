@@ -1,0 +1,437 @@
+/* #region Inventory grid designs */
+.sales-manage-orders {
+    display: grid;
+    grid-template-columns: repeat(17, 1fr); 
+    gap: 20px;
+    margin: 0;
+    padding: 20px 20px 20px 20px;
+    height: calc(100vh - 60px);
+    grid-template-rows: 60px 90px 90px 70px;
+    overflow-y: auto;
+}
+/* #endregion */
+
+/* #region Grid Layout*/
+/* Pending */
+.ms1 {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+/* On process */
+.ms2 {
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+/* In transit */
+.ms3 {
+    grid-row-start: 2;
+    grid-row-end: 7;
+    grid-column-start: 4;
+    grid-column-end: 18;
+}
+
+/* #endregion */
+
+/* #region Grid item styles */
+.grid-item-design-ms {
+    padding: 10px;
+    background-color: #f0f0f0;
+    font-family: 'Afacad Flux', sans-serif;
+    transition: transform 0.2s, box-shadow 0.2s; 
+    border: 1px solid rgba(90, 90, 90, 0.253);
+    border-radius: 8px;
+}
+
+.grid-item-design-ms .item-name {
+    letter-spacing: .8px;
+    font-size: 1.18rem;
+    font-weight: 500;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+/* #endregion */
+
+/* #region Title style*/
+.grid-item-design-ms.title {
+    background: transparent;
+    box-shadow: none;
+    font-size: 1.85rem;
+    font-weight: 500;
+    letter-spacing: .85px;
+    border: none;
+    white-space: nowrap;
+}
+
+.grid-item-design-ms.title:hover {
+    transform: none; 
+    box-shadow: none; 
+    cursor:default;
+}
+/* #endregion */
+
+/* #region Tabs styling */
+.sales-manage-orders-item.tabs{
+    font-size: 1.4rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #053746ef;
+    color: white;
+    cursor: pointer;
+}
+
+.sales-manage-orders-item.tabs:hover{
+    background-color: #042b36ef;
+}
+/* #endregion */
+
+/* #region Sales Manage Orders container */
+.sales-manage-orders-table {
+    overflow-y: auto;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Table alignment */
+.sales-manage-orders-table-header, 
+.sales-manage-orders-table-item {
+    display: flex;
+    align-items: center; 
+    text-align: center; 
+    border-bottom: 1px solid #cecece;
+}
+
+.sales-manage-orders-table-header > span,
+.sales-manage-orders-table-item > span {
+    flex: 1; /* Ensures equal spacing */
+}
+
+.sales-manage-orders-table-header {
+    font-weight: 600;
+    font-size: 1.02rem;
+    background-color: #f1f1f1;
+    padding: 0 0 5px 0;
+    position: sticky;
+    z-index: 4;
+    top: 0;
+}
+
+.sales-manage-orders-table-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #cecece;
+    font-size: .95rem;
+}
+
+.sales-manage-orders-table-item:hover{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.sales-manage-orders-table-header-hd{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 5px 0;
+}
+
+/* #region product filter alignment */
+.sales > .hd-sales-order-id, 
+.sales > .sales-order-id { flex-basis: 15%; }
+
+.sales > .hd-order-item-count, 
+.sales > .order-item-count { flex-basis: 15%; }
+
+.sales > .hd-managed-by, 
+.sales > .managed-by { flex-basis: 15%; }
+
+.sales > .hd-total-amount, 
+.sales > .total-amount { flex-basis: 17%; }
+
+.sales > .hd-sales-item-status, 
+.sales > .sales-item-status { flex-basis: 17%; }
+
+.sales > .hd-created-on, 
+.sales > .created-on { flex-basis: 21%; }
+
+/* #endregion */
+
+/* #endregion */
+
+/* #region Modal */
+.modal-style {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 11;
+}
+
+.modal-order-items-attached.show,
+.modal-order-items-attached2.show{
+    display: flex;
+    overflow-y: auto;
+}
+
+.modal-style > .modal-content.orderitematt{
+    background: #fff;
+    padding: 30px 30px 30px 30px;
+    border-radius: 10px;
+    height: 400px;
+    width: 870px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* #endregion  */
+
+/* #region Sales modal */
+.save.sales{
+    margin-top: 20px;
+    height: 30px;
+    padding: 10px;
+    white-space: nowrap;
+}
+
+.save.sales button{
+    height: 30px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.orderitematt form.salesadditem{
+    width: 300px;
+    height: 210px;
+    border: 1px solid #cecece;
+    border-radius: 20px;
+    justify-content: flex-start;
+    margin-right: 30px;
+}
+
+.orderitematt form.salesadditem2{
+    width: 420px;
+    height: 240px;
+    border: 1px solid #cecece;
+    border-radius: 20px;
+    justify-content: flex-start;
+    margin-right: 30px;
+}
+
+.prod-m.sales{
+    margin-top: 10px;
+}
+
+.prod-m.sales2{
+    margin-top: 10px;
+}
+
+.prod-m.sales2{
+    margin-top: 10px;
+}
+
+.orderitemlist{
+    border: 1px solid #cecece;
+    border-radius: 20px;
+    justify-content: flex-start;
+}
+
+.orderitemlist2{
+    border: 1px solid #cecece;
+    border-radius: 20px;
+    justify-content: flex-start;
+}
+.save.sales.ss2 > button:last-child{
+    margin-left: 10px;
+    background-color: rgb(51, 170, 21);
+}
+
+.save.sales.ss2 > button:last-child:hover{
+    background-color: rgb(40, 133, 16);
+}
+
+.save.sales.ss2.hide{
+    display: none !important; 
+}
+/* #endregion */
+
+
+/* #region create order modal  */
+.orderitemlist > ul{
+    height: 220px;
+    list-style: none;
+    overflow-y: auto;
+}
+
+.orderitemlist2 > ul{
+    height: 220px;
+    list-style: none;
+    overflow-y: auto;
+}
+
+.orderlist-container .header {
+    display: flex;
+    background-color: white;
+    font-weight: bold;
+    padding: 10px;
+    border-bottom: 1px solid #cecece;
+    text-align: center;
+    top: 0;
+    position: sticky;
+    z-index: 4;
+}
+
+.orderlist-container2 .header {
+    display: flex;
+    background-color: white;
+    font-weight: bold;
+    padding: 10px;
+    border-bottom: 1px solid #cecece;
+    text-align: center;
+    top: 0;
+    position: sticky;
+    z-index: 4;
+}
+
+/* Header Column Styling */
+.orderlist-container .header span {
+    flex: 1;
+    padding: 5px;
+    text-align: center;
+}
+
+.orderlist-container2 .header span {
+    flex: 1;
+    padding: 5px;
+    text-align: center;
+}
+
+/* Item Row Styling */
+.orderlist-container .item {
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid #cecece;
+    align-items: center;
+    background-color: #fff;
+}
+
+.orderlist-container2 .item {
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid #cecece;
+    align-items: center;
+    background-color: #fff;
+}
+
+/* Columns in Item */
+.orderlist-container .item span {
+    flex: 1;
+    padding: 5px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.orderlist-container2 .item span {
+    flex: 1;
+    padding: 5px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+/* SVG Icon Styling */
+.orderlist-container .item span svg {
+    height: 23px;
+    width: 23px;
+    cursor: pointer;
+    fill: #d61717; /* Default color */
+    transition: fill 0.2s ease;
+}
+
+.orderlist-container2 .item span svg {
+    height: 23px;
+    width: 23px;
+    cursor: pointer;
+    fill: #d61717; /* Default color */
+    transition: fill 0.2s ease;
+}
+
+.orderlist-container .item span svg:hover {
+    fill: #e74c3c; /* Hover color */
+}
+
+
+.orderlist-container2 .item span svg:hover {
+    fill: #e74c3c; /* Hover color */
+}
+
+/* Remove Border for Last Row */
+.orderlist-container .item:last-child {
+    border-bottom: none;
+}
+
+/* Remove Border for Last Row */
+.orderlist-container2 .item:last-child {
+    border-bottom: none;
+}
+
+/* Set flex-basis percentages for header columns */
+.orderlist-container .header span:nth-child(1) { flex-basis: 25%; }   /* Product ID */
+.orderlist-container .header span:nth-child(2) { flex-basis: 45%; }   /* Product Name */
+.orderlist-container .header span:nth-child(3) { flex-basis: 20%; }   /* Quantity */
+.orderlist-container .header span:nth-child(4) { flex-basis: 10%; }   /* Actions (SVG) */
+
+/* Set flex-basis percentages for item columns */
+.orderlist-container .item span:nth-child(1) { flex-basis: 25%; }   /* Product ID */
+.orderlist-container .item span:nth-child(2) { flex-basis: 45%; }   /* Product Name */
+.orderlist-container .item span:nth-child(3) { flex-basis: 20%; }   /* Quantity */
+.orderlist-container .item span:nth-child(4) { flex-basis: 10%; }   /* Actions (SVG) */
+
+
+/* Set flex-basis percentages for header columns */
+.orderlist-container .header span:nth-child(1) { flex-basis: 25%; }   /* Product ID */
+.orderlist-container .header span:nth-child(2) { flex-basis: 35%; }   /* Product Name */
+.orderlist-container .header span:nth-child(3) { flex-basis: 20%; }   /* Quantity */
+.orderlist-container .header span:nth-child(4) { flex-basis: 20%; }   /* Actions (SVG) */
+
+/* Set flex-basis percentages for item columns */
+.orderlist-container .item span:nth-child(1) { flex-basis: 25%; }   /* Product ID */
+.orderlist-container .item span:nth-child(2) { flex-basis: 35%; }   /* Product Name */
+.orderlist-container .item span:nth-child(3) { flex-basis: 20%; }   /* Quantity */
+.orderlist-container .item span:nth-child(4) { flex-basis: 20%; }   /* Actions (SVG) */
+
+.salesadditem2 > div:not(:first-child){
+    padding: 10px;
+}
+
+.salesadditem2 > div:last-child{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(44, 44, 44, 0.836);
+    font-weight: 600;
+    font-size: .7rem;
+}
+.last{
+    font-size: .6rem;
+}
+
+/* #endregion */
