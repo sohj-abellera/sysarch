@@ -1,1 +1,4 @@
-Main git for Sysarch project
+ - Developed a centralized web system to monitor inventory movement, sales, and deliveries across departments for a branch company.
+ - Implemented role-based access for admin, sales, and inventory managers, ensuring accurate data entry and user accountability.
+ - Designed the database schema and core modules using PHP, MySQL, HTML, CSS, and JavaScript.
+ - The system streamlined manual tracking processes, reduced inconsistencies, and served as a digital proof-of-concept for potential adoption by the company’s main branch.
